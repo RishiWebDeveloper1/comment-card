@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './CommentCard.css'
 import personImage from '../assets/person-image.jpg'
 import notesIcon from '../assets/notes-icon.png'
 import starIcon from '../assets/star-icon.png'
 
 const CommentCard = () => {
+    const [userDetail, setUserDetail] = useState('');
+
+    useEffect(() => {
+        fetchUser();
+    }, [])
+
+    const fetchUser = () => {
+        axio.get("http://localhost:3000/get")
+        .then(result => setUserDetail(result.data))
+        .catch(err => console.log(err));
+    }
+
     return (
         <div>
             <div className="card-container-box">
