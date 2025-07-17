@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './CommentCard.css'
 import axios from 'axios'
-import personImage from '../assets/person-image.jpg'
 import notesIcon from '../assets/notes-icon.png'
 import starIcon from '../assets/star-icon.png'
 
@@ -13,7 +12,7 @@ const CommentCard = () => {
     }, [])
 
     const fetchUser = async () => {
-        await axios.get("http://localhost:3000/get")
+        await axios.get("https://comment-card.onrender.com/get")
             .then(result => setUserDetail(result.data[0]))
             .catch(err => console.log(err));
     }
