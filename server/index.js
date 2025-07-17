@@ -10,4 +10,8 @@ app.use(express.json());
 
 mongoose.connect('');
 
-app.get('/get')
+app.get('/get', (req, res) => {
+    User.find()
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
